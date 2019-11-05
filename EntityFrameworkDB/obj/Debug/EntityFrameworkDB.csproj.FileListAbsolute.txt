@@ -1,0 +1,11 @@
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFrameworkDB.dll.config
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFrameworkDB.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFrameworkDB.pdb
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFramework.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFramework.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.csprojAssemblyReference.cache
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.csproj.CopyComplete
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.pdb

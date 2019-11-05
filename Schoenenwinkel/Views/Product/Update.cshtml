@@ -1,0 +1,25 @@
+﻿@model Schoenenwinkel.Models.ProductModel
+
+@using (Html.BeginForm("Update", "Product"))
+{
+    @Html.HiddenFor(m => m.ProductID)
+    @Html.LabelFor(m => m.Merk)
+    @Html.TextBoxFor(m => m.Merk)
+
+    @Html.LabelFor(m => m.Model)
+    @Html.TextBoxFor(m => m.Model)
+
+    @Html.LabelFor(m => m.Naam)
+    @Html.TextBoxFor(m => m.Naam)
+
+    @Html.LabelFor(m => m.Voorraad)
+    @Html.TextBoxFor(m => m.Voorraad)
+
+    @Html.LabelFor(m => m.Gewicht)
+    @Html.TextBoxFor(m => m.Gewicht)
+
+    @Html.LabelFor(m => m.FotoPath)
+    @Html.TextBoxFor(m => m.FotoPath)
+
+    <button type="submit">Update</button>
+}

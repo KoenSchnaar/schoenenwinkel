@@ -1,0 +1,20 @@
+﻿@model Schoenenwinkel.Models.VestigingVoorraadModel
+
+@using (Html.BeginForm("UpdateVoorraadVestiging", "Vestiging"))
+{
+    @Html.ValidationSummary()
+
+    @Html.HiddenFor(m => m.ProductID)
+    @Html.HiddenFor(m => m.VestigingID)
+    @Html.HiddenFor(m => m.FotoPath)
+
+    @Html.LabelFor(m => m.Vestiging)
+    @Html.TextBoxFor(m => m.Vestiging)
+
+    @Html.LabelFor(m => m.Voorraad)
+    @Html.TextBoxFor(m => m.Voorraad)
+
+    @Html.ValidationMessageFor(m => m.Voorraad)
+
+    <button type="submit">Update</button>
+}

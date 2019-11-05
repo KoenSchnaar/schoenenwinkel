@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SneakerWinkelModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Merk" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Model" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="50" />
+          <Property Name="Voorraad" Type="int" />
+          <Property Name="Gewicht" Type="int" />
+          <Property Name="Foto" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ProductVestigingVoorraad">
+          <Key>
+            <PropertyRef Name="PV_ID" />
+          </Key>
+          <Property Name="PV_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Vestiging_ID" Type="int" Nullable="false" />
+          <Property Name="Vestigingvoorraad" Type="int" />
+        </EntityType>
+        <EntityType Name="Vestiging">
+          <Key>
+            <PropertyRef Name="Vestiging_ID" />
+          </Key>
+          <Property Name="Vestiging_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Locatie" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Tel" Type="varchar" MaxLength="20" />
+          <Property Name="Personeelsleden" Type="int" />
+        </EntityType>
+        <Association Name="FK__ProductVe__Produ__3B75D760">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductVestigingVoorraad" Type="Self.ProductVestigingVoorraad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="ProductVestigingVoorraad">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductVe__Vesti__3C69FB99">
+          <End Role="Vestiging" Type="Self.Vestiging" Multiplicity="1" />
+          <End Role="ProductVestigingVoorraad" Type="Self.ProductVestigingVoorraad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vestiging">
+              <PropertyRef Name="Vestiging_ID" />
+            </Principal>
+            <Dependent Role="ProductVestigingVoorraad">
+              <PropertyRef Name="Vestiging_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SneakerWinkelModelStoreContainer">
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductVestigingVoorraad" EntityType="Self.ProductVestigingVoorraad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vestiging" EntityType="Self.Vestiging" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ProductVe__Produ__3B75D760" Association="Self.FK__ProductVe__Produ__3B75D760">
+            <End Role="Product" EntitySet="Product" />
+            <End Role="ProductVestigingVoorraad" EntitySet="ProductVestigingVoorraad" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductVe__Vesti__3C69FB99" Association="Self.FK__ProductVe__Vesti__3C69FB99">
+            <End Role="Vestiging" EntitySet="Vestiging" />
+            <End Role="ProductVestigingVoorraad" EntitySet="ProductVestigingVoorraad" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SneakerWinkelModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Merk" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Voorraad" Type="Int32" />
+          <Property Name="Gewicht" Type="Int32" />
+          <NavigationProperty Name="ProductVestigingVoorraads" Relationship="Self.FK__ProductVe__Produ__3B75D760" FromRole="Product" ToRole="ProductVestigingVoorraad" />
+          <Property Name="Foto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ProductVestigingVoorraad">
+          <Key>
+            <PropertyRef Name="PV_ID" />
+          </Key>
+          <Property Name="PV_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Vestiging_ID" Type="Int32" Nullable="false" />
+          <Property Name="Vestigingvoorraad" Type="Int32" />
+          <NavigationProperty Name="Product" Relationship="Self.FK__ProductVe__Produ__3B75D760" FromRole="ProductVestigingVoorraad" ToRole="Product" />
+          <NavigationProperty Name="Vestiging" Relationship="Self.FK__ProductVe__Vesti__3C69FB99" FromRole="ProductVestigingVoorraad" ToRole="Vestiging" />
+        </EntityType>
+        <EntityType Name="Vestiging">
+          <Key>
+            <PropertyRef Name="Vestiging_ID" />
+          </Key>
+          <Property Name="Vestiging_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Locatie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Naam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tel" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Personeelsleden" Type="Int32" />
+          <NavigationProperty Name="ProductVestigingVoorraads" Relationship="Self.FK__ProductVe__Vesti__3C69FB99" FromRole="Vestiging" ToRole="ProductVestigingVoorraad" />
+        </EntityType>
+        <Association Name="FK__ProductVe__Produ__3B75D760">
+          <End Role="Product" Type="Self.Product" Multiplicity="1" />
+          <End Role="ProductVestigingVoorraad" Type="Self.ProductVestigingVoorraad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Product_ID" />
+            </Principal>
+            <Dependent Role="ProductVestigingVoorraad">
+              <PropertyRef Name="Product_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProductVe__Vesti__3C69FB99">
+          <End Role="Vestiging" Type="Self.Vestiging" Multiplicity="1" />
+          <End Role="ProductVestigingVoorraad" Type="Self.ProductVestigingVoorraad" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vestiging">
+              <PropertyRef Name="Vestiging_ID" />
+            </Principal>
+            <Dependent Role="ProductVestigingVoorraad">
+              <PropertyRef Name="Vestiging_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SneakerWinkelEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="ProductVestigingVoorraads" EntityType="Self.ProductVestigingVoorraad" />
+          <EntitySet Name="Vestigings" EntityType="Self.Vestiging" />
+          <AssociationSet Name="FK__ProductVe__Produ__3B75D760" Association="Self.FK__ProductVe__Produ__3B75D760">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="ProductVestigingVoorraad" EntitySet="ProductVestigingVoorraads" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProductVe__Vesti__3C69FB99" Association="Self.FK__ProductVe__Vesti__3C69FB99">
+            <End Role="Vestiging" EntitySet="Vestigings" />
+            <End Role="ProductVestigingVoorraad" EntitySet="ProductVestigingVoorraads" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SneakerWinkelModelStoreContainer" CdmEntityContainer="SneakerWinkelEntities">
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="SneakerWinkelModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Merk" ColumnName="Merk" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Voorraad" ColumnName="Voorraad" />
+                <ScalarProperty Name="Gewicht" ColumnName="Gewicht" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductVestigingVoorraads">
+            <EntityTypeMapping TypeName="SneakerWinkelModel.ProductVestigingVoorraad">
+              <MappingFragment StoreEntitySet="ProductVestigingVoorraad">
+                <ScalarProperty Name="PV_ID" ColumnName="PV_ID" />
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Vestiging_ID" ColumnName="Vestiging_ID" />
+                <ScalarProperty Name="Vestigingvoorraad" ColumnName="Vestigingvoorraad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vestigings">
+            <EntityTypeMapping TypeName="SneakerWinkelModel.Vestiging">
+              <MappingFragment StoreEntitySet="Vestiging">
+                <ScalarProperty Name="Vestiging_ID" ColumnName="Vestiging_ID" />
+                <ScalarProperty Name="Locatie" ColumnName="Locatie" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Personeelsleden" ColumnName="Personeelsleden" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
