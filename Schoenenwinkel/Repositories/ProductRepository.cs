@@ -11,7 +11,7 @@ namespace Schoenenwinkel.Repositories
     {
         private SneakerWinkelEntities context = new SneakerWinkelEntities();
         private ConvertProduct converteerder = new ConvertProduct();
-        
+
 
         public List<ProductModel> GetAllProducts()
         {
@@ -38,12 +38,18 @@ namespace Schoenenwinkel.Repositories
             context.SaveChanges();
         }
 
-        public void AddProduct(ProductModel productModel)
+        public ProductModel AddProduct(ProductModel productModel)
         {
-            context.Products.Add(new Product{
-            Merk = productModel.Merk,
-            Model = productModel.Model});
+            var newProduct = new Product
+            {
+                Merk = productModel.Merk,
+                Model = productModel.Model
+            };
+            context.Products.Add(newProduct);
             context.SaveChanges();
+
+            productModel.ProductID = newProduct.Product_ID;
+            return productModel;
         }
 
         public void DeleteProduct(int productID)

@@ -16,13 +16,8 @@ namespace Schoenenwinkel.Repositories
         public List<VestigingVoorraadModel> GetVestigingVoorraad( int productID)
         {
             return context.ProductVestigingVoorraads
-                .Where(p => p.Product_ID == productID)
-                .Select(p => new VestigingVoorraadModel { ProductID = p.Product_ID, 
-                    VestigingID = p.Vestiging_ID, 
-                    Product = p.Product.Merk +" " + p.Product.Model +" "+ p.Product.Naam, 
-                    FotoPath = p.Product.Foto, Locatie = p.Vestiging.Locatie, 
-                    Vestiging = p.Vestiging.Naam, 
-                    Voorraad = p.Vestigingvoorraad.Value})
+                .Where(p => p.Product_ID == productID).ToList()
+                .Select(p => converteerder.Converteer(p))
                 .ToList();
         }
 
@@ -46,6 +41,33 @@ namespace Schoenenwinkel.Repositories
             int verschilVoorraad = model.Voorraad - beginVoorraad;
             var entity = context.Products.Single(p => p.Product_ID == model.ProductID);
             entity.Voorraad += verschilVoorraad;
+            context.SaveChanges();
+        }
+
+        public void AddVoorraadVestiging(int productID)
+        {
+            var vestigingen = context.Vestigings.ToList();
+
+            foreach(var vestiging in vestigingen)
+            {
+            context.ProductVestigingVoorraads.Add(new ProductVestigingVoorraad
+            {
+                Product_ID = productID,
+                Vestiging_ID = vestiging.Vestiging_ID,
+                Vestigingvoorraad = 0
+            });
+            context.SaveChanges();
+            }
+        }
+
+        public void DeleteVoorraadVestiging(int productID)
+        {
+            var vestigingen = context.ProductVestigingVoorraads.Where(v => productID == v.Product_ID).ToList();
+
+            foreach(var vestiging in vestigingen)
+            {
+                context.ProductVestigingVoorraads.Remove(vestiging);
+            }
             context.SaveChanges();
         }
     }

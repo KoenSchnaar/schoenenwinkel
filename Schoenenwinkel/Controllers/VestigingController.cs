@@ -26,7 +26,7 @@ namespace Schoenenwinkel.Controllers
         }
 
         [HttpPost]
-        public ActionResult UpdateVoorraadVestiging(VestigingVoorraadModel VVModel, string FotoPath)
+        public ActionResult UpdateVoorraadVes5tiging(VestigingVoorraadModel VVModel, string FotoPath)
         {
             if (!ModelState.IsValid)
             {

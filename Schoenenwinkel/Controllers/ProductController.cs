@@ -11,6 +11,8 @@ namespace Schoenenwinkel.Controllers
     public class ProductController : Controller
     {
         ProductRepository ProductRepo = new ProductRepository();
+        private VestigingVoorraadRepository VestigingVoorraadRepo = new VestigingVoorraadRepository();
+
         public ActionResult Index()
         {
             return View();
@@ -34,7 +36,8 @@ namespace Schoenenwinkel.Controllers
         {
             if (!ModelState.IsValid)
                 return (View(productModel));
-            ProductRepo.AddProduct(productModel);
+            var newProduct = ProductRepo.AddProduct(productModel);
+            VestigingVoorraadRepo.AddVoorraadVestiging(newProduct.ProductID);
             return RedirectToAction("Producten");
         }
 
@@ -51,12 +54,11 @@ namespace Schoenenwinkel.Controllers
             return RedirectToAction("Producten");
         }
 
-        public ActionResult Delete(int ProductID)
+        public ActionResult Delete(int productID)
         {
-            ProductRepo.DeleteProduct(ProductID);
+            VestigingVoorraadRepo.DeleteVoorraadVestiging(productID);
+            ProductRepo.DeleteProduct(productID);
             return RedirectToAction("Producten");
         }
-
-        
     }
 }
