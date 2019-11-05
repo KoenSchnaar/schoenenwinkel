@@ -139,6 +139,7 @@
     <Compile Include="Converter\ConvertProduct.cs" />
     <Compile Include="Repositories\ProductRepository.cs" />
     <Compile Include="Repositories\VestigingVoorraadRepository.cs" />
+    <Compile Include="Validations\VoorraadEvenGetal.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-theme.css" />
@@ -178,7 +179,9 @@
     <Content Include="Views\Vestiging\GetVoorraadVestiging.cshtml" />
     <Content Include="Views\Product\Add.cshtml" />
     <Content Include="Views\Product\Update.cshtml" />
-    <Content Include="Views\Vestiging\UpdateVoorraadVestiging.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ProductModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\ProductModel.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\VestigingVoorraadModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

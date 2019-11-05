@@ -1,0 +1,16 @@
+﻿@model Schoenenwinkel.Models.VestigingVoorraadModel
+
+    <tr>
+        <td>@Model.Vestiging</td>
+        <td>@Model.Locatie</td>
+        <td>@Model.Product</td>
+        <td>
+            @Html.HiddenFor(m => m.ProductID)
+            @Html.HiddenFor(m => m.VestigingID)
+            @Html.HiddenFor(m => m.FotoPath)
+
+            @Html.TextBoxFor(m => m.Voorraad)
+            @Html.ValidationMessageFor(m => m.Voorraad)
+        </td>
+    </tr>
+

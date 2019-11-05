@@ -1,0 +1,15 @@
+﻿@model Schoenenwinkel.Models.ProductModel
+
+    <tr>
+        <td><img src="@Model.FotoPath" style="margin: 0 auto; width: 150px; height: 100px;" /></td>
+        <td>@Model.Merk</td>
+        <td>@Model.Model</td>
+        <td>@Model.Naam</td>
+        <td>@Model.Voorraad</td>
+        <td>@Model.Gewicht</td>
+        <td>@Html.ActionLink("Vestiging"@*Naam van de link*@, "GetVoorraadVestiging"@*Naam van de methode*@, "Vestiging"@*Naam van de controller*@ , new { productID = Model.ProductID, fotoPath = Model.FotoPath }, null) </td>
+        <td>
+            @Html.ActionLink("Update", "Update", "Product", new { productID = Model.ProductID }, null) /
+        @Html.ActionLink("Delete", "Delete", "Product", new { productID = Model.ProductID }, null)
+    </td>
+    </tr>

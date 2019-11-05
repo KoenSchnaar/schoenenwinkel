@@ -1,0 +1,10 @@
+﻿@model Schoenenwinkel.Models.ProductModel
+
+@Html.ValidationMessageFor(m => m.Merk, "", new { @class = "Errormessage" })
+@Html.LabelFor(m => m.Merk)
+@Html.TextBoxFor(m => m.Merk)
+<br />
+
+@Html.ValidationMessageFor(m => m.Model, "", new { @class = "Errormessage" })
+@Html.LabelFor(m => m.Model)
+@Html.TextBoxFor(m => m.Model)

@@ -19,21 +19,20 @@ namespace Schoenenwinkel.Controllers
             return View(VestigingVoorraadRepo.GetVestigingVoorraad(productID));
         }
 
-        public ActionResult UpdateVoorraadVestiging(int productID, int vestigingID)
-        {
-            var entity = VestigingVoorraadRepo.GetProductVestiging(productID, vestigingID);
-            return View(entity);
-        }
+        //public ActionResult UpdateVoorraadVestiging(int productID, int vestigingID)
+        //{
+        //    var entity = VestigingVoorraadRepo.GetProductVestiging(productID, vestigingID);
+        //    ViewBag.ProductInfo = productID;
+        //    return View(entity);
+        //}
 
         [HttpPost]
-        public ActionResult UpdateVoorraadVes5tiging(VestigingVoorraadModel VVModel, string FotoPath)
+        public ActionResult GetVoorraadVestiging(List<VestigingVoorraadModel> VVModel, string FotoPath, int productID2)
         {
             if (!ModelState.IsValid)
-            {
                 return View(VVModel);
-            }
-            VestigingVoorraadRepo.UpdateVoorraad(VVModel);
-            return RedirectToAction("GetVoorraadVestiging", new { productID = VVModel.ProductID, fotoPath = FotoPath });
+            VestigingVoorraadRepo.UpdateVoorraad(VVModel, productID2);
+            return RedirectToAction("GetVoorraadVestiging", new { productID = productID2, fotoPath = FotoPath });
         }
 
     }

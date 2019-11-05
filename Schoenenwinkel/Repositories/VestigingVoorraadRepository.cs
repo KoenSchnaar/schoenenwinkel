@@ -27,19 +27,22 @@ namespace Schoenenwinkel.Repositories
             return converteerder.Converteer(entity);
         }
 
-        public void UpdateVoorraad(VestigingVoorraadModel model)
+        public void UpdateVoorraad(List<VestigingVoorraadModel> model, int productID)
         {
-            var entity = context.ProductVestigingVoorraads.Single(p => p.Product_ID == model.ProductID && p.Vestiging_ID == model.VestigingID);
-            int beginVoorraad = entity.Vestigingvoorraad.HasValue ? entity.Vestigingvoorraad.Value : 0 ;
-            entity.Vestigingvoorraad = model.Voorraad;
-            UpdateTotaalVoorraad(model, beginVoorraad);
-            context.SaveChanges();
+            foreach (var modelItem in model)
+            {
+                var entity = context.ProductVestigingVoorraads.Single(p => p.Product_ID == productID && p.Vestiging_ID == modelItem.VestigingID);
+                int beginVoorraad = entity.Vestigingvoorraad.HasValue ? entity.Vestigingvoorraad.Value : 0;
+                entity.Vestigingvoorraad = modelItem.Voorraad;
+                UpdateTotaalVoorraad(modelItem, beginVoorraad, productID);
+                context.SaveChanges();
+            }
         }
 
-        public void UpdateTotaalVoorraad(VestigingVoorraadModel model, int beginVoorraad)
+        public void UpdateTotaalVoorraad(VestigingVoorraadModel model, int beginVoorraad, int productID)
         {
             int verschilVoorraad = model.Voorraad - beginVoorraad;
-            var entity = context.Products.Single(p => p.Product_ID == model.ProductID);
+            var entity = context.Products.Single(p => p.Product_ID == productID);
             entity.Voorraad += verschilVoorraad;
             context.SaveChanges();
         }

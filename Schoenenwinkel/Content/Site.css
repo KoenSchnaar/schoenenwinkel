@@ -17,16 +17,9 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 
 td, tr, th {
     border: 2px solid black;
-    /*margin: 5px;*/
     padding: 5px;
 }
 .navbar-brand {
@@ -42,4 +35,8 @@ td, tr, th {
     padding: 10px;
     margin: 5px;
     background-color: red;
+}
+
+.Errormessage {
+    color: red;
 }

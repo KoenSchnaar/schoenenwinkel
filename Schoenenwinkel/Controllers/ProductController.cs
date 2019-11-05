@@ -50,6 +50,8 @@ namespace Schoenenwinkel.Controllers
         [HttpPost]
         public ActionResult Update(ProductModel productModel)
         {
+            if (!ModelState.IsValid)
+                return View(productModel);
             ProductRepo.UpdateProduct(productModel);
             return RedirectToAction("Producten");
         }

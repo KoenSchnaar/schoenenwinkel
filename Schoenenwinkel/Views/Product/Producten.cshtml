@@ -15,24 +15,11 @@
         <th> Naam </th>
         <th> Voorraad </th>
         <th> Gewicht </th>
+        <th> Vestiging </th>
+        <th> Update/Delete </th>
     </tr>
 
-    @foreach (var product in Model)
-    {
-        <tr>
-            <td ><img src="@product.FotoPath" style="margin: 0 auto; width: 150px; height: 100px;" /></td>
-            <td>@product.Merk</td>
-            <td>@product.Model</td>
-            <td>@product.Naam</td>
-            <td>@product.Voorraad</td>
-            <td>@product.Gewicht</td>
-            <td>@Html.ActionLink("Vestiging"@*Naam van de link*@, "GetVoorraadVestiging"@*Naam van de methode*@, "Vestiging"@*Naam van de controller*@ , new { productID = product.ProductID, fotoPath = product.FotoPath }, null) </td>
-            <td>@Html.ActionLink("Update", "Update", "Product", new { productID = product.ProductID }, null) </td>
-            <td>@Html.ActionLink("Delete", "Delete", "Product", new { productID = product.ProductID }, null) </td>
-        </tr>
-    }
-
-
+    @Html.DisplayForModel()
 
 </table>
 @Html.ActionLink("Add", "Add", "Product")

@@ -2,11 +2,8 @@
 
 @using (Html.BeginForm("Add", "Product"))
 {
-    @Html.LabelFor(m => m.Merk)
-    @Html.TextBoxFor(m => m.Merk)
 
-    @Html.LabelFor(m => m.Model)
-    @Html.TextBoxFor(m => m.Model)
+    @Html.EditorForModel();
 
     <button type="submit">Add</button>
 }

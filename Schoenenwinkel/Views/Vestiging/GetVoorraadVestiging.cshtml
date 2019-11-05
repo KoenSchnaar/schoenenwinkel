@@ -6,29 +6,24 @@
 <br />
 <h2>Vestigingen Met voorraad</h2>
 <div>
-    
-        <img src="@ViewBag.FotoInfo" style=" width: 500px; height: 310px; "/>
-    
+
+    <img src="@ViewBag.FotoInfo" style=" width: 500px; height: 310px; " />
 </div>
 
-<table>
-    <tr>
-        <td>Vestiging</td>
-        <td>Locatie</td>
-        <td>Product</td>
-        <td>Voorraad</td>
-        <td>Update voorraad</td>
-    </tr>
-    
-    @foreach(var vestiging in Model)
-    {
+@using (Html.BeginForm("GetVoorraadVestiging", "Vestiging", new { productID = ViewBag.ProductInfo, productID2 = ViewBag.ProductInfo }))
+{
+    <table>
         <tr>
-            <td>@vestiging.Vestiging</td>
-            <td>@vestiging.Locatie</td>
-            <td>@vestiging.Product</td>
-            <td>@vestiging.Voorraad</td>
-            <td>@Html.ActionLink("Update voorraad", "UpdateVoorraadVestiging", "Vestiging", new { VestigingID = vestiging.VestigingID, ProductID = ViewBag.ProductInfo, fotoPath = ViewBag.FotoInfo }, null) </td>
+            <td>Vestiging</td>
+            <td>Locatie</td>
+            <td>Product</td>
+            <td>Voorraad</td>
         </tr>
-    }
 
-</table>
+        @Html.EditorForModel()
+
+    </table>
+
+    <br />
+    <button type="submit">Update</button>
+}
