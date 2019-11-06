@@ -10,7 +10,7 @@
     <img src="@ViewBag.FotoInfo" style=" width: 500px; height: 310px; " />
 </div>
 
-@using (Html.BeginForm("GetVoorraadVestiging", "Vestiging", new { productID = ViewBag.ProductInfo, productID2 = ViewBag.ProductInfo }))
+@using (Html.BeginForm("GetVoorraadVestiging", "Vestiging", new { productID = ViewBag.ProductInfo, productID2 = ViewBag.ProductInfo, fotoPath = ViewBag.FotoInfo }))
 {
     <table>
         <tr>

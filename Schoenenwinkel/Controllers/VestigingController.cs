@@ -30,7 +30,10 @@ namespace Schoenenwinkel.Controllers
         public ActionResult GetVoorraadVestiging(List<VestigingVoorraadModel> VVModel, string FotoPath, int productID2)
         {
             if (!ModelState.IsValid)
-                return View(VVModel);
+            {
+                ViewBag.FotoInfo = FotoPath;
+                return View(VestigingVoorraadRepo.GetVestigingVoorraad(productID2));
+            }
             VestigingVoorraadRepo.UpdateVoorraad(VVModel, productID2);
             return RedirectToAction("GetVoorraadVestiging", new { productID = productID2, fotoPath = FotoPath });
         }
