@@ -7,7 +7,7 @@ using System.Web;
 
 namespace Schoenenwinkel.Repositories
 {
-    public class ProductRepository
+    public class ProductRepository : IProductRepository
     {
         private SneakerWinkelEntities context = new SneakerWinkelEntities();
         private ConvertProduct converteerder = new ConvertProduct();
@@ -18,7 +18,7 @@ namespace Schoenenwinkel.Repositories
             return context.Products.ToList().Select(p => converteerder.Converteer(p))
                 .ToList();
         }
-        
+
         public ProductModel GetOneProduct(int productID)
         {
             var entity = context.Products.Single(p => p.Product_ID == productID);

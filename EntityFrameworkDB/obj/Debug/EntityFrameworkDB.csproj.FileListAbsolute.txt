@@ -9,3 +9,16 @@ C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFram
 C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.csproj.CopyComplete
 C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.dll
 C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\obj\Debug\EntityFrameworkDB.pdb
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.Helpers.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.Mvc.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.Razor.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.WebPages.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.Helpers.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.Mvc.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.Razor.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.WebPages.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\EntityFrameworkDB\bin\Debug\System.Web.WebPages.Razor.xml

@@ -10,21 +10,20 @@ namespace Schoenenwinkel.Controllers
 {
     public class VestigingController : Controller
     {
+        IVestigingVoorraadRepository VestigingVoorraadRepo;
+
+        public VestigingController(IVestigingVoorraadRepository VestigingVoorraadRepo)
+        {
+            this.VestigingVoorraadRepo = VestigingVoorraadRepo;
+        }
+
         // GET: Vestiging
-        VestigingVoorraadRepository VestigingVoorraadRepo = new VestigingVoorraadRepository();
         public ActionResult GetVoorraadVestiging(int productID, string fotoPath)
         {
             ViewBag.ProductInfo = productID;
             ViewBag.FotoInfo = fotoPath;
             return View(VestigingVoorraadRepo.GetVestigingVoorraad(productID));
         }
-
-        //public ActionResult UpdateVoorraadVestiging(int productID, int vestigingID)
-        //{
-        //    var entity = VestigingVoorraadRepo.GetProductVestiging(productID, vestigingID);
-        //    ViewBag.ProductInfo = productID;
-        //    return View(entity);
-        //}
 
         [HttpPost]
         public ActionResult GetVoorraadVestiging(List<VestigingVoorraadModel> VVModel, string FotoPath, int productID2)

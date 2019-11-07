@@ -8,12 +8,12 @@ using System.Web;
 
 namespace Schoenenwinkel.Repositories
 {
-    public class VestigingVoorraadRepository
+    public class VestigingVoorraadRepository : IVestigingVoorraadRepository
     {
         private SneakerWinkelEntities context = new SneakerWinkelEntities();
         private ConvertVoorraadVestiging converteerder = new ConvertVoorraadVestiging();
 
-        public List<VestigingVoorraadModel> GetVestigingVoorraad( int productID)
+        public List<VestigingVoorraadModel> GetVestigingVoorraad(int productID)
         {
             return context.ProductVestigingVoorraads
                 .Where(p => p.Product_ID == productID).ToList()
@@ -51,15 +51,15 @@ namespace Schoenenwinkel.Repositories
         {
             var vestigingen = context.Vestigings.ToList();
 
-            foreach(var vestiging in vestigingen)
+            foreach (var vestiging in vestigingen)
             {
-            context.ProductVestigingVoorraads.Add(new ProductVestigingVoorraad
-            {
-                Product_ID = productID,
-                Vestiging_ID = vestiging.Vestiging_ID,
-                Vestigingvoorraad = 0
-            });
-            context.SaveChanges();
+                context.ProductVestigingVoorraads.Add(new ProductVestigingVoorraad
+                {
+                    Product_ID = productID,
+                    Vestiging_ID = vestiging.Vestiging_ID,
+                    Vestigingvoorraad = 0
+                });
+                context.SaveChanges();
             }
         }
 
@@ -67,7 +67,7 @@ namespace Schoenenwinkel.Repositories
         {
             var vestigingen = context.ProductVestigingVoorraads.Where(v => productID == v.Product_ID).ToList();
 
-            foreach(var vestiging in vestigingen)
+            foreach (var vestiging in vestigingen)
             {
                 context.ProductVestigingVoorraads.Remove(vestiging);
             }

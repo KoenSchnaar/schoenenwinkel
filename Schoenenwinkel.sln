@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schoenenwinkel", "Schoenenw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EntityFrameworkDB", "EntityFrameworkDB\EntityFrameworkDB.csproj", "{C15CB349-42C9-4AB1-8281-800C4FAFD176}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoenenwinkelTests", "UnitTestSchoenenwinkel\SchoenenwinkelTests.csproj", "{193552FC-9A61-40E3-ACA2-C68C75DE92B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C15CB349-42C9-4AB1-8281-800C4FAFD176}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C15CB349-42C9-4AB1-8281-800C4FAFD176}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C15CB349-42C9-4AB1-8281-800C4FAFD176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{193552FC-9A61-40E3-ACA2-C68C75DE92B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{193552FC-9A61-40E3-ACA2-C68C75DE92B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{193552FC-9A61-40E3-ACA2-C68C75DE92B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{193552FC-9A61-40E3-ACA2-C68C75DE92B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

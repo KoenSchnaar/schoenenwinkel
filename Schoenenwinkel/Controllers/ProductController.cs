@@ -10,8 +10,13 @@ namespace Schoenenwinkel.Controllers
 {
     public class ProductController : Controller
     {
-        ProductRepository ProductRepo = new ProductRepository();
+        private readonly IProductRepository ProductRepo;
         private VestigingVoorraadRepository VestigingVoorraadRepo = new VestigingVoorraadRepository();
+
+        public ProductController(IProductRepository productRepo)
+        {
+            this.ProductRepo = productRepo;
+        }
 
         public ActionResult Index()
         {

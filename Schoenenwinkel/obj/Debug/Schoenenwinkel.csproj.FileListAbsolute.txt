@@ -80,3 +80,10 @@ C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\obj\Debug\Schoenenwinke
 C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\obj\Debug\Schoenenwinkel.pdb
 C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\EntityFramework.SqlServer.dll
 C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\EntityFramework.SqlServer.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\Ninject.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\Ninject.Web.Common.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\Ninject.Web.Mvc.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\WebActivatorEx.dll
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\Ninject.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\Ninject.Web.Common.xml
+C:\Users\Koen\source\repos\Schoenenwinkel\Schoenenwinkel\bin\Ninject.Web.Mvc.xml
